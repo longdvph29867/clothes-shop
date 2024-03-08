@@ -1,0 +1,22 @@
+<div class="py-20">
+  <div class="container mx-auto">
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+      Bộ sưu tập quần áo
+    </h2>
+    <span class="block mt-4 text-neutral-500 text-sm sm:text-base lg:w-1/2">
+      Các bộ sưu tập quần áo thời trang mới nhất trong năm 2023 Dạo Phố cực
+      đẹp, cao cấp dành cho nam nữ
+    </span>
+    <hr class="border-slate-200 my-14" />
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 gap-10">
+      <div class="col-span-1 pr-4">
+        <app-filter />
+      </div>
+      <div class="lg:col-span-3 md:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-10 ">
+        <!-- <ItemProduct key={index} product={product} /> -->
+        <app-item-product *ngFor="let product of listProduct" [product]="product" />
+      </div>
+    </div>
+  </div>
+</div>
+);

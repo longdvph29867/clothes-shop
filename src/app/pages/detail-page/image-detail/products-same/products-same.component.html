@@ -1,0 +1,12 @@
+<div class="container mx-auto">
+  <h2 class=" text-3xl md:text-4xl font-semibold mb-12">
+    Sản phẩm cùng loại
+  </h2>
+
+  <div class="lg:-mx-6 -mx-2 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+    <div *ngFor="let product of productsSame" class="py-6 lg:px-6 px-2">
+      <!-- <ItemProduct product={product} /> -->
+      <app-item-product [product]="product" />
+    </div>
+  </div>
+</div>

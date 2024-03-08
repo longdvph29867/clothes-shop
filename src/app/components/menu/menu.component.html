@@ -17,16 +17,18 @@
     <div
       class="group-hover:visible group-hover:opacity-100 invisible duration-300 absolute transform z-10 w-56 top-full left-0 opacity-0 translate-y-0">
       <ul class="rounded-lg shadow-lg border border-neutral-100 text-sm relative bg-white py-4 grid gap-1">
-        <li class="px-2">
-          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100" href="#">
-            category.categoryName
+
+        <li class="px-2" *ngFor="let category of categories">
+          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
+            routerLink="/products" [queryParams]="{category: category.categorySlug}">
+            {{category.categoryName}}
           </a>
         </li>
       </ul>
     </div>
   </li>
   <li>
-    <a class="py-2.5 px-5 font-medium rounded-full duration-300 hover:bg-slate-100" href="/products">
+    <a class="py-2.5 px-5 font-medium rounded-full duration-300 hover:bg-slate-100" routerLink="/products">
       Sản phẩm
     </a>
   </li>

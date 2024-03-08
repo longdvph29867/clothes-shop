@@ -2,5 +2,6 @@ export type Category = {
   _id: string,
   categoryName: string,
   categorySlug: string,
-  quantityMovie?: number,
+  createAt: string,
+  updateAt: string,
 }

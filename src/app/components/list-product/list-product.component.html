@@ -2,7 +2,8 @@
   <div class="mt-28">
     <div class="container mx-auto">
       <h2 class=" text-3xl md:text-4xl font-semibold mb-12">
-        Dành cho nữ
+        <!-- Dành cho nữ -->
+        {{gender === "" ? "Sản phẩm mới" : gender === "female" ? "Dành cho nữ" : "Dành cho nam" }}
       </h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-16 xl:gap-20">
         <app-item-product *ngFor="let product of listProduct" [product]="product" />

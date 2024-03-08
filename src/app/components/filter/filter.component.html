@@ -1,0 +1,105 @@
+<div>
+  <div class="relative flex flex-col py-8 space-y-4 border-b border-slate-300">
+    <h3 class="font-semibold ">Danh mục</h3>
+    <div>
+      <div *ngFor="let category of categories" class="flex items-center text-sm sm:text-base mb-4">
+        <input id="Hoodie" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="Hoodie" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            {{category.categoryName}}
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="relative flex flex-col py-8 space-y-4 border-b border-slate-300">
+    <h3 class="font-semibold ">Size</h3>
+    <div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="sizeS" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="sizeS" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            S
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="sizeM" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="sizeM" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            M
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="sizeL" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="sizeL" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            L
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="sizeXL" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="sizeXL" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            XL
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="size2XL" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="size2XL" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            2XL
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="relative flex flex-col py-8 space-y-4 border-b border-transparent">
+    <h3 class="font-semibold ">Màu sắc</h3>
+    <div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="sizeS" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="sizeS" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            Trắng
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="red" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="red" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            Đỏ
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="blue" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="blue" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            Xanh dương
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="yellow" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="yellow" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            Vàng
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center text-sm sm:text-base mb-4">
+        <input id="pink" class=" rounded w-5 h-5" type="checkbox" name="" />
+        <label htmlFor="pink" class="pl-2.5 sm:pl-3.5">
+          <span class="text-slate-900 text-sm font-normal">
+            Hông
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

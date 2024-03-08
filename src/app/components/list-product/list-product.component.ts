@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ItemProductComponent } from '../item-product/item-product.component';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../types/product';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './list-product.component.css'
 })
 export class ListProductComponent {
+  @Input() gender: string = "";
   listProduct:Product[] = [];
   error: string = '';
   constructor(
@@ -24,7 +25,7 @@ export class ListProductComponent {
   }
   getAllProduct() {
     this.spinner.show();
-    this.productService.getAll().subscribe((data: any) => {
+    this.productService.getAll(this.gender).subscribe((data: any) => {
       this.listProduct = data.data.slice(0,8)
       this.spinner.hide();
     }, (error) => {

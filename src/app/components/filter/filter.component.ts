@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CategoryService } from '../../services/category/category.service';
 import { Category } from '../../types/category';
 import { CommonModule } from '@angular/common';
-import { CategoryService } from '../../services/category/category.service';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'app-filter',
   standalone: true,
-  imports: [RouterLink, CommonModule],
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  imports: [CommonModule],
+  templateUrl: './filter.component.html',
+  styleUrl: './filter.component.css'
 })
-export class MenuComponent {
+export class FilterComponent {
   categories: Category[] = [];
   constructor (
     public categoryService: CategoryService
