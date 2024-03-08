@@ -1,0 +1,5 @@
+header.show-mobile .menu-mobile {
+  max-height: 500px !important;
+  opacity: 1 !important;
+  visibility: visible;
+}
