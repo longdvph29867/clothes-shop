@@ -1,1 +1,124 @@
-<p>edit-product works!</p>
+<div class="mt-6 sm:mx-auto sm:w-full px-6">
+  <h1 class="text-yellow-500 text-3xl mb-3">Add product</h1>
+  <form class="space-y-5" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="max-w-sm mx-auto">
+      <!-- name -->
+      <div>
+        <label for="name" class="block text-sm font-medium leading-6 text-slate-800 capitalize">name</label>
+        <div class="mt-2">
+          <input id="name" formControlName="name" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['name'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['name'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['name'].errors['required']">Name is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- price -->
+      <div>
+        <label for="price" class="block text-sm font-medium leading-6 text-slate-800 capitalize">price</label>
+        <div class="mt-2">
+          <input id="price" formControlName="price" type="number"
+            [ngClass]="{ 'border-red-500': submitted && f['price'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['price'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['price'].errors['required']">Price is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- image -->
+      <div class="grid sm:grid-cols-3">
+        <div class="col-span-3" [ngClass]="{ '!col-span-2': selectedImageBase64}">
+          <label for="images" class="block text-sm font-medium leading-6 text-slate-800 capitalize">images</label>
+          <div class="mt-2">
+            <input id="images" formControlName="images" type="file" (change)="handleChangeImage($event)"
+              [ngClass]="{ 'border-red-500': (submitted && f['images'].errors) || form.hasError('fileSizeExceeded') || form.hasError('fileTypeExceeded')}"
+              class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+            <div class="min-h-3">
+              <div *ngIf="submitted || form.hasError('fileSizeExceeded') || form.hasError('fileTypeExceeded')">
+                <span class="text-xs text-red-500" *ngIf="f['images'].errors && f['images'].errors['required']">Image
+                  is
+                  Required.</span>
+                <span class="text-xs text-red-500" *ngIf="!f['images'].errors && form.hasError('fileSizeExceeded')">Max
+                  size 1Mb</span>
+                <span class="text-xs text-red-500" *ngIf="!f['images'].errors && form.hasError('fileTypeExceeded')">File
+                  is not an image</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="selectedImageBase64">
+          <img class="w-20 h-20 object-cover ml-auto" [src]="selectedImageBase64" alt="">
+        </div>
+      </div>
+
+      <!-- category -->
+      <div>
+        <label for="id_category" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Category</label>
+        <div class="mt-2">
+          <select id="id_category" formControlName="id_category" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['id_category'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+            <option value="">---Choose---</option>
+            <option [value]="category._id" *ngFor="let category of categories">{{category.categoryName}}</option>
+          </select>
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['id_category'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['id_category'].errors['required']">Category is
+                Required.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- desc -->
+      <div>
+        <label for="gender" class="block text-sm font-medium leading-6 text-slate-800 capitalize">gender</label>
+        <div class="mt-2 grid grid-cols-3">
+          <label class="flex items-center gap-1">
+            <input id="gender" formControlName="gender" type="radio" name="gender" value="female" class="">
+            Female
+          </label>
+          <label class="flex items-center gap-1">
+            <input id="gender" formControlName="gender" type="radio" name="gender" value="male" class="">
+            Male
+          </label>
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['gender'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['gender'].errors['required']">gender is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="desc" class="block text-sm font-medium leading-6 text-slate-800 capitalize">desc</label>
+        <div class="mt-2">
+          <textarea formControlName="desc" id="" cols="30" rows="3"
+            [ngClass]="{ 'border-red-500': submitted && f['desc'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6"></textarea>
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['desc'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['desc'].errors['required']">Description
+                is Required.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-yetext-yellow-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
+          product</button>
+      </div>
+    </div>
+
+  </form>
+</div>

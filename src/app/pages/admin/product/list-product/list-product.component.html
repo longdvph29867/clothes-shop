@@ -1,1 +1,72 @@
-<p>list-product works!</p>
+<div>
+  <div class="p-4 pb-0 mb-0 bg-white rounded-t-2xl">
+    <a routerLink="/admin/products/add" class="text-white text-base font-semibold bg-green-500 py-2 px-2 rounded my-5">
+      <span>Thêm mới</span>
+    </a>
+  </div>
+  <div class="h-full overflow-x-auto">
+    <div class="w-full border-gray-200 text-slate-500">
+      <div class="w-full grid lg:grid-cols-9 sm:grid-cols-5 grid-cols-2 gap-2">
+        <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
+          Ảnh
+        </div>
+        <div class="sm:col-span-2 pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
+          Tên sản phẩm
+        </div>
+        <div class="lg:block hidden col-span-3 pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Mô tả
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Giá
+        </div>
+        <div class="lg:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Danh mục
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Thao tác
+        </div>
+      </div>
+      <div>
+        <div *ngFor="let item of productsList"
+          class="grid lg:grid-cols-9 sm:grid-cols-5 grid-cols-2 gap-2 border-b sm:border-transparent border-slate-300">
+          <div class="p-2">
+            <div class="px-2 py-1 min-w-[110px]">
+              <div>
+                <img [src]="item.images[0]" class="mr-4 h-20 w-20 rounded object-cover" />
+              </div>
+            </div>
+          </div>
+          <div class="p-2 sm:col-span-2">
+            <div class="flex flex-col justify-center">
+              <h6 class="text-base">{{item.name}}</h6>
+              <p class="text-sm text-slate-400">
+                {{item.gender}}
+              </p>
+            </div>
+          </div>
+          <div class="lg:block hidden p-2 col-span-3">
+            <p class="text-sm ">{{item.desc.slice(0, 100)+ '...'}}</p>
+          </div>
+          <div class="p-2">
+            <span class="text-sm font-semibold text-slate-400">
+              {{item.price}}
+            </span>
+          </div>
+          <div class="lg:block hidden p-2">
+            <p class="text-sm ">
+              {{item.id_category.categoryName}}
+            </p>
+          </div>
+          <div class="p-2 space-x-2">
+            <a [routerLink]="['/admin/products/edit', item.slug]" class="text-sm font-semibold text-yellow-500">
+              Sửa
+            </a>
+            <button (click)="openConfirmBox(item._id)" class="text-sm font-semibold text-red-500">
+              Xoá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

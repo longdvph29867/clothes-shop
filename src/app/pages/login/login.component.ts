@@ -47,7 +47,7 @@ export class LoginComponent {
       this.localService.set(res.data)
       this.spinner.hide();
       if(res.data.role === 'admin') {
-        location.href = '/';
+        location.href = '/admin/products';
       }
       else {
         location.href = '/';
