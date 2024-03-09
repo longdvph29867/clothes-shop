@@ -6,11 +6,12 @@ import { ProductService } from '../../services/product/product.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsSameComponent } from './image-detail/products-same/products-same.component';
+import { FormatCurrencyPipe } from '../../pipes/format-currency.pipe';
 
 @Component({
   selector: 'app-detail-page',
   standalone: true,
-  imports: [CommonModule, ImageDetailComponent, ProductsSameComponent],
+  imports: [CommonModule, ImageDetailComponent, ProductsSameComponent, FormatCurrencyPipe],
   templateUrl: './detail-page.component.html',
   styleUrl: './detail-page.component.css'
 })
@@ -37,10 +38,14 @@ export class DetailPageComponent {
 
   }
   getDetail(slug: string) {
+    this.spinner.show();
     this.productService.getDetail(slug).subscribe((data: any) => {
+    this.spinner.hide();
+
       this.product = data.data
       this.getProductSame(data.data.id_category)
     }, (error) => {
+      this.spinner.hide();
       console.log(error.message);
     })
   }

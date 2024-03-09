@@ -34,18 +34,19 @@
       </div>
       <div class="flex justify-between items-end ">
         <div class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2  text-sm font-medium">
-          <span class="text-green-500">{{product.price}}</span>
+          <span class="text-green-500">{{product.price | formatCurrency}}</span>
         </div>
         <div class="flex items-center">
           <div class="relative w-20 h-6">
             <div class="absolute text-slate-400 left-0 bottom-0 h-full w-20">
               ★★★★★
             </div>
-            <div class="absolute text-[#fbbf24] left-0 bottom-0 h-full overflow-hidden" style="width: 25%;">
+            <div class="absolute text-[#fbbf24] left-0 bottom-0 h-full overflow-hidden"
+              [style.width.%]="product.rating * 20">
               ★★★★★
             </div>
           </div>
-          <span class="text-sm ml-1 text-slate-500">4</span>
+          <span class="text-sm ml-1 text-slate-500">{{product.rating}}</span>
         </div>
       </div>
     </div>

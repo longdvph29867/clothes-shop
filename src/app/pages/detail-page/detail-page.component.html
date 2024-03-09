@@ -18,7 +18,7 @@
                 <div
                   class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-3 text-lg font-semibold">
                   <span class="text-green-500 !leading-none">
-                    {{product.price}}
+                    {{product.price | formatCurrency}}
                   </span>
                 </div>
               </div>
@@ -29,12 +29,13 @@
                     <div class="absolute text-slate-400 left-0 bottom-0 h-full w-20">
                       ★★★★★
                     </div>
-                    <div class="absolute text-[#fbbf24] left-0 bottom-0 h-full overflow-hidden" style="width: 85%;">
+                    <div class="absolute text-[#fbbf24] left-0 bottom-0 h-full overflow-hidden"
+                      [style.width.%]="product.rating ? product.rating * 20 : 0">
                       ★★★★★
                     </div>
                   </div>
                   <div class=" ml-1.5 flex text-sm">
-                    <span>rating</span>
+                    <span>{{product.rating}}</span>
                   </div>
                 </a>
                 <span class="hidden sm:block mx-2.5">·</span>

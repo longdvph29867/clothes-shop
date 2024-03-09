@@ -7,11 +7,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Product } from '../../../../types/product';
 import { ConfirmBoxComponent } from '../../../../components/confirm-box/confirm-box.component';
+import { FormatCurrencyPipe } from '../../../../pipes/format-currency.pipe';
 
 @Component({
   selector: 'app-list-product',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormatCurrencyPipe],
   templateUrl: './list-product.component.html',
   styleUrl: './list-product.component.css'
 })

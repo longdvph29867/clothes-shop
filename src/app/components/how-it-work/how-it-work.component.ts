@@ -19,7 +19,7 @@ export class HowItWorkComponent {
     {
       id: 1,
       img: "../../../assets/images/HIW1img.webp",
-      title: "Lọc &amp; Khám phá",
+      title: "Lọc & Khám phá",
       content: "Lọc và đề xuất giúp bạn dễ dàng tìm thấy dễ dàng",
       color: "text-red-800 bg-red-100",
     },
