@@ -11,38 +11,34 @@
     <div
       class="group-hover:visible group-hover:opacity-100 invisible duration-300 absolute transform z-10 w-40 top-full right-0 opacity-0">
       <ul class="rounded-lg shadow-lg border border-neutral-100 text-sm relative bg-white py-4 grid gap-1">
-        <li class="px-2">
-          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
-            href="https://k4-typescript-theta.vercel.app/" target="_black">
-            Thông tin
-          </a>
-        </li>
-        <li class="px-2">
-          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
-            href="/admin/products">
-            Quản trị
-          </a>
-        </li>
-
-        <li class="px-2">
-          <div onClick={handleLogOut}
-            class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100">
-            Đăng xuất
-          </div>
-        </li>
-
-        <li class="px-2">
-          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
-            href="/login">
-            Đăng nhập
-          </a>
-        </li>
-        <li class="px-2">
-          <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
-            href="/singup">
-            Đăng ký
-          </a>
-        </li>
+        <ng-container *ngIf="userInfo; else elseTemplate">
+          <li class="px-2">
+            <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
+              href="https://k4-typescript-theta.vercel.app/" target="_black">
+              Thông tin
+            </a>
+          </li>
+          <li class="px-2">
+            <div (click)="handleLogout()"
+              class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100">
+              Đăng xuất
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <li class="px-2">
+            <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
+              href="/login">
+              Đăng nhập
+            </a>
+          </li>
+          <li class="px-2">
+            <a class="flex items-center font-normal text-neutral-600 py-2 px-4 rounded-md hover:bg-neutral-100"
+              href="/singup">
+              Đăng ký
+            </a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </button>

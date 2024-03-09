@@ -1,0 +1,44 @@
+<div class="flex flex-col justify-center h-full">
+  <h3 class=" text-2xl text-slate-800 mb-3">Login</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-2">
+    <div>
+      <label for="email" class="block text-sm font-medium leading-6 text-slate-800">Email</label>
+      <div>
+        <input id="email" formControlName="email" type="text"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted">
+          <span class="text-xs text-red-500" *ngIf="f['email'].errors && f['email'].errors['required']">Email is
+            Required.</span>
+          <span class="text-xs text-red-500" *ngIf="f['email'].hasError('pattern')">Must be a valid email</span>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password" class="block text-sm font-medium leading-6 text-slate-800">Password</label>
+      <div>
+        <input id="password" formControlName="password" type="password"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted && f['password'].errors">
+          <span class="text-xs text-red-500" *ngIf="f['password'].errors['required']">Password is
+            Required.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-3 flex items-end justify-between">
+      <button type="submit"
+        class="flex justify-center min-w-20 rounded-md bg-slate-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90">Login</button>
+      <p class="text-xs text-slate-500">Not a member?
+        <a routerLink="/auth/register" class="text-slate-800 text-sm font-medium">
+          Reister
+        </a>
+      </p>
+    </div>
+  </form>
+</div>

@@ -15,14 +15,4 @@ import { UserComponent } from '../user/user.component';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  userInfo!: UserInfo | null;
-  constructor(private localService: LocalService) {}
-  ngOnInit(): void {
-    this.userInfo = this.localService.get();
-  }
-
-  handleLogout() {
-    this.localService.remove();
-    location.href = '/'
-  }
 }

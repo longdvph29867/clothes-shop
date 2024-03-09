@@ -4,6 +4,9 @@ import { LayoutComponent } from './layouts/layout/layout.component';
 import { authGuard } from './guard/auth.guard';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +23,19 @@ export const routes: Routes = [
       {
         'path': 'detail/:slug',
         component: DetailPageComponent,
+      },
+    ]
+  },
+  {
+    'path': 'auth', component: LoginLayoutComponent,
+    children: [
+      {
+        'path': 'login',
+        component: LoginComponent,
+      },
+      {
+        'path': 'register',
+        component: RegisterComponent,
       },
     ]
   },

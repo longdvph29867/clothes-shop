@@ -1,0 +1,90 @@
+<div class="flex flex-col justify-center h-full">
+  <h3 class=" text-2xl text-slate-800 mb-3">Register</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-1">
+    <div>
+      <label for="email" class="block text-sm font-medium leading-6 text-slate-800">Email</label>
+      <div>
+        <input id="email" formControlName="email" type="text"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted">
+          <span class="text-xs text-red-500" *ngIf="f['email'].errors && f['email'].errors['required']">Email is
+            Required.</span>
+          <span class="text-xs text-red-500" *ngIf="f['email'].hasError('pattern')">Must be a valid email</span>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="fullName" class="block text-sm font-medium leading-6 text-slate-800">Full name</label>
+      <div>
+        <input id="fullName" formControlName="fullName" type="text"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted && f['fullName'].errors">
+          <span class="text-xs text-red-500" *ngIf="f['fullName'].errors['required']">Full name
+            Required.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="account" class="block text-sm font-medium leading-6 text-slate-800">Account</label>
+      <div>
+        <input id="account" formControlName="account" type="text"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted && f['account'].errors">
+          <span class="text-xs text-red-500" *ngIf="f['account'].errors['required']">Account
+            Required.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password" class="block text-sm font-medium leading-6 text-slate-800">Password</label>
+      <div>
+        <input id="password" formControlName="password" type="password"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted && f['password'].errors">
+          <span class="text-xs text-red-500" *ngIf="f['password'].errors['required']">Password is
+            Required.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmPassword" class="block text-sm font-medium leading-6 text-slate-800">Re-Enter the
+        password</label>
+      <div>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password"
+          class="block w-full rounded-md outline-none border border-slate-300 py-1.5 shadow-sm px-3 sm:text-sm sm:leading-6">
+      </div>
+      <div class="min-h-3">
+        <div *ngIf="submitted">
+          <span class="text-xs text-red-500"
+            *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['required']"> New password is
+            Required.</span>
+          <span class="text-xs text-red-500" *ngIf="!f['confirmPassword'].errors && form.hasError('notSame')">Your
+            new passwords are not match</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-3 flex items-end justify-between">
+      <button type="submit"
+        class="flex justify-center min-w-20 rounded-md bg-slate-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90">Register</button>
+      <p class="text-xs text-slate-500">Already have an account?
+        <a routerLink="/auth/login" class="text-slate-800 text-sm font-medium">
+          Login
+        </a>
+      </p>
+    </div>
+  </form>
+</div>

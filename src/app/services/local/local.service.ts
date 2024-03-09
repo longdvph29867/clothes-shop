@@ -5,7 +5,7 @@ import { UserInfo } from '../../types/user';
   providedIn: 'root'
 })
 export class LocalService {
-  USER_INFO: string = 'USER_INFO_MOVIE';
+  USER_INFO: string = 'USER_CLOTHES_SHOP';
   constructor() { }
   get(): UserInfo | null {
     const jsonData = localStorage.getItem(this.USER_INFO);
