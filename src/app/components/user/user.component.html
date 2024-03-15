@@ -42,9 +42,10 @@
       </ul>
     </div>
   </button>
-  <div class="text-xs text-slate-700">
+
+  <div *ngIf="userInfo" class="text-xs text-slate-700">
     Hi,
-    long
+    {{userInfo.account}}
   </div>
 
 </div>
